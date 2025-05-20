@@ -20,12 +20,11 @@ async function authController(req, res) {
   }
 
   try {
-    const auth = await authService(nome, email, senha_hash, tipo);
-
-    console.log(auth);
+    const authServices = new authService();
+    const auth = await authServices.services(nome, email, senha_hash, tipo);
 
     if (!auth) {
-      return res.status(404).json({ msg: "usuário não encontrado!" });
+      return res.status(404).json({ msg: "Usuário não encontrado!" });
     }
 
     return res.status(200).json({ message: "Usuário criado com sucesso!" });
