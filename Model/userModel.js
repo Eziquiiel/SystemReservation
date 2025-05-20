@@ -1,6 +1,5 @@
 const sequelize = require("../DB/conn");
 const { DataTypes } = require("sequelize");
-const reservaModel = require("./reservaModel")(sequelize, DataTypes);
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -34,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: "atualizado_em",
     }
   );
-  User.hasMany(reservaModel, { foreignKey: "usuario_id" });
 
   return User;
 };

@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../DB/conn");
-const reservaModel = require("./reservaModel")(sequelize, DataTypes);
 
 module.exports = (sequelize, DataTypes) => {
   const Hours = sequelize.define("Hours", {
@@ -26,8 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-
-  Hours.hasMany(reservaModel, { foreignKey: "horario_id" });
 
   return Hours;
 };
