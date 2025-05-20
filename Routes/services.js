@@ -22,12 +22,12 @@ routes.post("/login", loginController);
 
 //User
 routes.get("/user", middleware, userAllController);
-routes.get("/user/:id", middleware, userIDController);
+routes.get("/user/:id", userIDController);
 routes.delete("/user/:id", middleware, deleteController);
 
 //Service
 routes.post("/service", middleware, createServiceController);
-routes.get("/service", middleware, getServiceController);
+routes.get("/service", getServiceController);
 routes.put("/service/:id", middleware, putServicecontroller);
 routes.delete("/service/:id", middleware, deleteServiceController);
 

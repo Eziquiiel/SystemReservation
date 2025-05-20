@@ -1,11 +1,6 @@
 const getService = require("../../Services/service/getService");
 
 async function getServiceController(req, res) {
-  if (req.user.tipo !== "admin") {
-    return res
-      .status(403)
-      .json({ message: "Acesso negado: somente administradores!" });
-  }
   try {
     const services = new getService();
     const servico = await services.service();

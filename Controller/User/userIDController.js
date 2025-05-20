@@ -1,11 +1,6 @@
 const userIDService = require("../../Services/User/userIDService");
 
 async function userIDController(req, res) {
-  if (req.user.tipo !== "admin") {
-    return res
-      .status(403)
-      .json({ message: "Acesso negado: somente administradores." });
-  }
   const { id } = req.params;
 
   try {
